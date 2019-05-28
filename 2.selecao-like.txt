@@ -9,11 +9,6 @@
 1. db.tasks.find({"descricao": /js/}).pretty()
 2. db.tasks.find({"descricao": /t$/}).pretty()
 3. db.tasks.find({"descricao": /l$/}).pretty()
-4. db.tasks.find({$or:[{"descricao":/t$/}, {"descricao":/l$/}]}).pretty()
+4. db.tasks.find({$or:[{"descricao":/t$/}, {"descricao":/l$/}]}).pretty() || db.tasks.find({"descricao":{$in:[/t$/,/l$/]}}).pretty()
 5. db.tasks.find({"descricao": /^b/}).pretty()
 6. db.tasks.find({$or:[{"descricao":/^j/}, {"descricao":/^h/}]}).pretty()
-
-
-db.tasks.find({"descricao": /e/}).pretty() - Contém a letra 'e'
-db.tasks.find({"descricao": /e$/}).pretty()  - Contém a letra 'e' no final da palavra
-db.tasks.find({"descricao": /^e/}).pretty()  - Contém a letra 'e' no início da palavra
