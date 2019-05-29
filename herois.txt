@@ -1,0 +1,31 @@
+Você receberá um arquivo com o formato JSON contendo alguns personagens de quadrinhos e/ou desenhos animados e você deverá realizar as alterações que foram solicitadas abaixo pelo cliente.
+1.	Selecione todos os registros.
+2.	Selecione apenas o primeiro registro.
+3.	Selecione todos os registros em que o nome seja igual a ‘Shrek’ ou a quantidade de gatos seja igual a 2.
+4.	Selecione todos os registros em que o local de nascimento seja igual a Roma e necessariamente que a quantidade de cachorros seja igual a 3.
+5.	Selecione todos os registros em que a quantidade de gatos seja igual a 3 ou a quantidade de cachorros seja igual a 6.
+6.	Selecione todos os registros em que o nome comece com C.
+7.	Selecione todos os registros em que o nome comece com H.
+8.	Selecione todos os registros em que o nome termine com a.
+9.	Selecione todos os registros em que o nome contenha s.
+10.	Selecione todos os registros em que o nome contenha ‘e’ ou ‘o’.
+11.	Insira 3 novos super-heróis.
+12.	Delete 1 super-herói em que o nome seja igual a Thor.
+13.	Atualize a quantidade de gatos em que o usuário com o registro de nome ‘Thor’ possui. Atualize a quantidade de gatos de ‘0’ para ‘7’.
+14.	Selecione todos os registros que foram trabalhados e exporte para um arquivo JSON.
+
+
+1. db.tasks.find().pretty()
+2. db.tasks.findOne()
+3. db.tasks.find({$or:[{"Nome":"Shrek"}, {"Qtd Gatos":2}]}).pretty()
+4. db.tasks.find({$and:[{"Local":"Roma"}, {"Qtd Cachorros":3}]}).pretty()
+5. db.tasks.find({$or:[{"Qtd Gatos":3}, {"Qtd Cachorros":6}]}).pretty()
+6. db.tasks.find({"Nome": /^C/}).pretty() || db.tasks.find({"Nome":{$in:[/^c/,/^C/]}}).pretty() 
+7. db.tasks.find({"Nome": /^H/}).pretty()
+8. db.tasks.find({"Nome": /a$/}).pretty()
+9. db.tasks.find({"Nome": /s/}).pretty()
+10. db.tasks.find({"descricao":{$in:[/e$/,/o$/]}}).pretty()
+11. db.tasks.insertMany([{"Nome":"Herói 1"},{"Nome":"Herói 2"},{"Nome":"Herói 3"}])
+12. db.tasks.remove({"Nome":"Thor"})
+13. db.tasks.insert({"Nome":"Thor", "Qtd Gatos":0}) || db.tasks.update({"Nome":"Thor"},{$set:{"Qtd Gatos":7}})
+14. mongoexport --db heroist --collection tasks --out heroist.json
