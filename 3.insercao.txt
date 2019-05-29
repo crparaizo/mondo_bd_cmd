@@ -1,0 +1,29 @@
+1.	Insira 5 novos registros conforme descrições abaixo:
+Titulo = Titulo U
+Descrição = Java
+Concluída = verdadeiro
+
+	db.tasks.insert({"titulo":"Titulo U","descricao":"Java", "concluida":true})
+
+Titulo = Titulo O
+Descrição = CSharp
+Concluída = falso
+
+	db.tasks.insert({"titulo":"Titulo O","descricao":"CSharp", "concluida":"falses"})
+
+Titulo = Titulo P
+Descrição = Firebase
+
+	db.tasks.insert({"titulo":"Titulo P","descricao":"Firebase"})
+
+Titulo = Titulo Y
+Descrição = Microsoft
+
+	db.tasks.insert({"titulo":"Titulo Y","descricao":"Microsoft"})
+
+Titulo = Titulo R
+Descrição = Oracle
+Data de Inclusão = data de hoje
+
+	db.tasks.insert({"titulo":"Titulo R","descricao":"Oracle", "dataInclusao":"29/05/2019"})
+	db.tasks.insert({"titulo":"Titulo R","descricao":"Oracle", "dataInclusao":new Date()})
